@@ -26,6 +26,38 @@ def temp_test_output_file(prefix: str = 'pte-') -> str:
             shutil.rmtree(dir_name)
 
 
+def test_unforced_iso():
+    with temp_test_output_file() as test_output_file:
+        runner = CliRunner()
+        with runner.isolated_filesystem():
+            runner.invoke(main.cli, ['unforced', '--file', test_output_file])
+            assert filecmp.cmp(test_output_file, test_expected_output_file)
+
+
+def test_forced_iso():
+    with temp_test_output_file() as test_output_file:
+        runner = CliRunner()
+        with runner.isolated_filesystem():
+            runner.invoke(main.cli, ['forced', '--file', test_output_file])
+            assert filecmp.cmp(test_output_file, test_expected_output_file)
+
+
+def test_forcedbinary_iso():
+    with temp_test_output_file() as test_output_file:
+        runner = CliRunner()
+        with runner.isolated_filesystem():
+            runner.invoke(main.cli, ['forcedbinary', '--file', test_output_file])
+            assert filecmp.cmp(test_output_file, test_expected_output_file)
+
+
+def test_extraforced_iso():
+    with temp_test_output_file() as test_output_file:
+        runner = CliRunner()
+        with runner.isolated_filesystem():
+            runner.invoke(main.cli, ['extraforced', '--file', test_output_file])
+            assert filecmp.cmp(test_output_file, test_expected_output_file)
+
+
 def test_unforced():
     with temp_test_output_file() as test_output_file:
         runner = CliRunner()

@@ -40,7 +40,7 @@ def forced(file: str):
 def forcedbinary(file: str):
     """forced"""
 
-    with open(file, 'wb', newline='\n') as f:
+    with open(file, 'wb') as f:
         yaml.dump(some_dict, f, line_break='\n')
 
 
