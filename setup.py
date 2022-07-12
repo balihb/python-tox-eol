@@ -12,14 +12,13 @@ setup(
     extras_require={
         'test': [
             'pytest>=6.2.5',
-            'pytest-cov',
-            'pytest-mock>=3.6.1'
+            'pytest-cov'
         ]
     },
     python_requires='>=3.6',
     entry_points={
         'console_scripts': [
-            'pte=python-tox-eol.main:cli'
+            'pte=python_tox_eol.main:cli'
         ]
     }
 )

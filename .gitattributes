@@ -1,5 +1,7 @@
 *       text    eol=lf
 
+tests/files/expected_output_crlf.yaml text    eol=crlf
+
 *.py     text diff=python
 *.md       text diff=markdown
 

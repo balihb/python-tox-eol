@@ -37,10 +37,19 @@ def forced(file: str):
 
 @cli.command()
 @arg_file()
+def forcedbinary(file: str):
+    """forced"""
+
+    with open(file, 'wb', newline='\n') as f:
+        yaml.dump(some_dict, f, line_break='\n')
+
+
+@cli.command()
+@arg_file()
 def extraforced(file: str):
     """extraforced"""
 
-    with CRRemoverTIW(open(file, 'wb', newline='\n')) as f:
+    with CRRemoverTIW(open(file, 'w', newline='\n')) as f:
         yaml.dump(some_dict, f, line_break='\n')
 
 
